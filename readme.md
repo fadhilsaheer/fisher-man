@@ -7,7 +7,6 @@ This will contain a server file and index file [ instagram login page ]
 Wan't a demo ?? 
 https://fadhilsaheer.github.io/hack-ig/
 
-above link is the demo of static page
 
 
 ## Setup
