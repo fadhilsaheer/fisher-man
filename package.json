@@ -1,0 +1,16 @@
+{
+  "name": "hack-instagram",
+  "version": "1.0.0",
+  "description": "phishing ig",
+  "main": "index.js",
+  "scripts": {
+    "start": "nodemon server.js"
+  },
+  "author": "Fadhil",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.1",
+    "nodemailer": "^6.4.17",
+    "nodemon": "^2.0.6"
+  }
+}
