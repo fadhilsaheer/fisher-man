@@ -1,0 +1,61 @@
+/* basic */
+:root{
+    --bg-color: #272727;
+    --text-color: #fff;
+    --green: #18c4a3;
+}
+html{
+    scroll-behavior: smooth;
+}
+body{
+    background: var(--bg-color);
+    color: var(--text-color);
+    font-family: sans-serif;
+}
+
+.effect{
+    color: var(--green);
+}
+
+
+/* navbar */
+
+.navbar-brand{
+    font-weight: bold;
+}
+
+.navbar-brand span{
+    color: var(--green);
+}
+
+
+/* homepage  */
+
+.home-page{
+    margin-top: 100px;
+}
+
+.home-page-h1{
+    font-weight: bolder;
+}
+
+.home-page-text{
+    font-size: 20px;
+    margin-top: 50px;
+    color: #E1E0DF;
+}
+
+/* footer  */
+
+#sticky-footer {
+    flex-shrink: none;
+}
+
+.footer-text{
+    font-size: 16px;
+}
+
+.footer{
+    margin-top: 100px;
+    margin-bottom: 100px;
+}
