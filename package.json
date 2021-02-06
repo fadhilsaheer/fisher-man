@@ -4,13 +4,12 @@
   "description": "phishing ig",
   "main": "index.js",
   "scripts": {
-    "start": "nodemon server.js"
+    "start": "node server.js"
   },
   "author": "Fadhil",
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "json-server": "^0.16.3",
-    "nodemon": "^2.0.6"
+    "json-server": "^0.16.3"
   }
 }
