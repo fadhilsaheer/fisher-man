@@ -10,7 +10,7 @@
   "license": "ISC",
   "dependencies": {
     "express": "^4.17.1",
-    "nodemailer": "^6.4.17",
+    "json-server": "^0.16.3",
     "nodemon": "^2.0.6"
   }
 }
