@@ -119,7 +119,9 @@
       <section class="footer">
         <footer id="sticky-footer" class="py-4 bg-transparent text-white-50">
           <div class="container text-center">
-            <span class="footer-text"><span class="fas fa-code"></span> With ❤ Hacker</span>
+            <span class="footer-text"
+              ><span class="fas fa-code"></span> With ❤ Hacker</span
+            >
           </div>
         </footer>
       </section>
@@ -127,6 +129,10 @@
       <!-- footer -->
     </section>
 
-    <script src="./assets/js/index.js"></script>
+    <script>
+      const user = JSON.parse(sessionStorage.getItem("user")); // getting user from session
+
+      if (user) window.location.href = "./assets/html/dashboard.html"; // sending user to dashboard page if he already signed in
+    </script>
   </body>
 </html>
