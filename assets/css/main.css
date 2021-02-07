@@ -130,3 +130,15 @@ a{
     top: 50%;
     right: 50%;
 }
+
+
+/* dashboard */
+
+.dashboard-links{
+    margin-top: 100px;
+}
+
+.dashboard-social-links{
+    color: var(--light-text);
+    margin-top: 60px;
+}
