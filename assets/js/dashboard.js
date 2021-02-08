@@ -11,6 +11,8 @@ let userFromDb = await fetch(
 userFromDb = await userFromDb.json();
 userFromDb = userFromDb[0];
 
+if(!userFromDb) window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
+
 // logout
 
 let logoutLink = document.getElementById("logout-link");
