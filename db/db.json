@@ -1,27 +1,4 @@
 {
-  "users": [
-    {
-      "name": "fadhil",
-      "email": "email@email.com",
-      "password": "202cb962ac59075b964b07152d234b70",
-      "id": 1
-    }
-  ],
-
-  "hacker": [
-    {
-      "id": 1,
-      "userId": 1,
-      "social": "<i class='fab fa-instagram'></i>",
-      "username": "instagram_user",
-      "password": "instagram_password"
-    },
-    {
-      "id": 2,
-      "userId": 1,
-      "social": "<i class='fab fa-facebook'></i>",
-      "username": "facebook_user",
-      "password": "facebook_password"
-    }
-  ]
+  "users": [],
+  "hacker": []
 }

