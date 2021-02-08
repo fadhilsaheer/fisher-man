@@ -2,16 +2,16 @@ import { dbUrl, domain } from "./variables.js";
 
 const user = JSON.parse(sessionStorage.getItem("user"));
 
+if(!user) window.location.href = "../html/login.html"
 
 // getting user details from database
 
 let userFromDb = await fetch(
   `${dbUrl}/users?name=${user.name}&email=${user.email}`
-);
+)
 userFromDb = await userFromDb.json();
 userFromDb = userFromDb[0];
 
-if(!userFromDb) window.location.href = "https://www.youtube.com/watch?v=dQw4w9WgXcQ";
 
 // logout
 
